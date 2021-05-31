@@ -5,14 +5,13 @@
           <ul>
                @foreach ($employees as $employee)
                    <li>
-                        Employee: {{$employee -> firstname}} {{$employee -> lastname}}
-                        <br>
-                        @foreach ($employee -> tasks as $task)
-                            Task Title: {{ $task -> title}}
-                            <br>
-                            Task Description: {{ $task -> description }}
-                            <br>
-                        @endforeach
+                        <details>
+                              <summary>Employee {{$employee -> id}}: {{$employee -> firstname}} {{$employee -> lastname}}</summary>
+                              @foreach ($employee -> tasks as $task)
+                              <p>Task Title: {{ $task -> title}}</p>
+                              <p>Task Description: {{ $task -> description}}</p>
+                              @endforeach
+                        </details>
                    </li>
                @endforeach
           </ul>
